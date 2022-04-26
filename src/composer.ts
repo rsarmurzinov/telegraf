@@ -4,6 +4,7 @@ import * as tg from './core/types/typegram'
 import * as tt from './telegram-types'
 import { Middleware, MiddlewareFn, MiddlewareObj } from './middleware'
 import Context from './context'
+import {CallbackQuery} from "typegram/markup";
 
 export type MaybeArray<T> = T | T[]
 export type MaybePromise<T> = T | Promise<T>
@@ -44,7 +45,7 @@ export type NarrowedContext<
 > = Context<U> & Omit<C, keyof Context>
 
 export interface GameQueryUpdate extends tg.Update.CallbackQueryUpdate {
-  callback_query: tg.CallbackQuery.GameShortGameCallbackQuery
+  callback_query: tg.CallbackQuery
 }
 
 function always<T>(x: T) {
